@@ -37,24 +37,59 @@ th:hover
                     <th><a href="ui.html" >UI</a></th>
                     <th><a href="java.html" >Java</a></th>
                     <th><a href="courses.html">Courses</a></th>
-
-                  <th><a href="contact.html" >Findme</a></th>
+                    <th><a href="contact.html" >Findme</a></th>
                     </tr>
                 </table>
     <h2 align="center">Courses</h2>
-	<form align="center">
-	Name:<input type="text" name="name"><br><br>
-	Duration:<input type="text" name="days"><br><br>
-	Fee:<input type="text" name="value"><br><br>
-	Level:<select name="Level">
+	<form id="myForm" align="center" action="action_page.php"  method="get">
+	Name:<input type="text"id="Name" name="name" value=""><br><br>
+	Duration:<input type="text" id="Duration" name="Duration" value=""><br><br>
+	Fee:<input type="text" id="Fee" name="Fee" value=""><br><br>
+	Level:<select name="Level" id="Level">
 		<option value="Basic">Basic</option>
 		<option value="Medium">Medium</option>
-		<option value="High">High</option>
+		<option value="Excellent">High</option>
     </select><br><br>
-    <input type="button" value="save" size=6>
-    <input type="button" value="cancel" size=6>
+    <input type="button" value="submit" size=6 onclick="displaydata()">
+    <input type="button" value="Clear" size=6 onclick="cleardata()">
 	</form>
+<table id="show">
+<tr>
+	<td> Name</td>
+	<td> Duration </td>
+	<td> Fee </td>
+	<td> Level </td>
+</tr>
+</table>
+<script>
+function displaydata(){
 
+	var a=document.getElementById("show");
+	var b=document.createElement("tr");
+	var c=document.createElement("td");
+	var d=document.createElement("td");
+	var e=document.createElement("td");
+	var f=document.createElement("td");
+
+	c.innerHTML=document.getElementById("Name").value;
+	d.innerHTML=document.getElementById("Duration").value;
+	e.innerHTML=document.getElementById("Fee").value;
+	f.innerHTML=document.getElementById("Level").value;
+
+
+	b.appendChild(c);
+	b.appendChild(d);
+	b.appendChild(e);
+	b.appendChild(f);
+
+	a.appendChild(b);
+
+}
+function cleardata(){
+   document.getElementById("myForm").reset();
+
+}
+</script>
 
 </body>
 </html>
